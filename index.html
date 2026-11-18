@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Хранители знания — комплексное задание по истории Казахстана, 8–11 классы</title>
+<meta name="description" content="Интерактивное комплексное задание по истории Казахстана для 8–11 классов: источники, проблемный вопрос, конструктор аргументации, критерии и КСП.">
+<style>
+:root{--ink:#0b1426;--navy:#12203d;--navy2:#1a2d52;--gold:#d3aa4c;--gold2:#f0d98f;--paper:#f3ead3;--paper2:#e8dcbc;--text:#1d1a14;--stamp:#b8453a;--line:#2d4272}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:#e9e3d2;font:18px/1.6 'Palatino Linotype','Book Antiqua',Georgia,serif}
+a{color:var(--gold2)}
+:focus-visible{outline:3px solid var(--gold2);outline-offset:2px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+header.hero{padding:44px 0 26px;border-bottom:1px solid var(--line);background:radial-gradient(900px 300px at 85% -10%,#1d3260 0,transparent 70%)}
+.stamp{display:inline-block;border:3px double var(--stamp);color:#e58b80;padding:2px 14px;transform:rotate(-3deg);font-size:15px;letter-spacing:.04em;border-radius:3px;margin-bottom:14px}
+h1{font-size:clamp(34px,6vw,60px);line-height:1.05;margin:0 0 12px;font-weight:700;color:#fbf3dc}
+h1 em{font-style:normal;color:var(--gold)}
+.lead{max-width:62ch;color:#cfc8b3;margin:0}
+nav.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:26px 0 0;padding:0;list-style:none}
+nav.tabs button{font:inherit;cursor:pointer;border:1px solid var(--line);border-bottom:none;background:var(--navy);color:#cfc8b3;padding:8px 18px;border-radius:10px 10px 0 0}
+nav.tabs button[aria-selected=true]{background:var(--paper);color:var(--text);border-color:var(--gold);font-weight:700}
+main{background:var(--paper);color:var(--text);padding:28px 0 60px;min-height:60vh}
+main .wrap>section{margin-bottom:38px}
+main h2{font-size:26px;margin:0 0 6px;color:#2a2210}
+main h3{font-size:20px;margin:18px 0 6px;color:#3b2f12}
+.q{font-size:clamp(22px,3.4vw,30px);line-height:1.3;margin:6px 0 14px;font-weight:700;border-left:6px solid var(--stamp);padding-left:14px}
+.chip{display:inline-block;background:#2a2210;color:var(--gold2);border-radius:4px;padding:1px 9px;margin:0 6px 6px 0;font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.card{background:#fbf6e6;border:1px solid #cdbf98;border-top:5px solid var(--gold);border-radius:3px;padding:12px 14px;box-shadow:2px 3px 0 #cdbf98}
+.card.data{border-top-color:#3b6e8f}.card.visual{border-top-color:var(--stamp)}
+.card .kind{font-size:14px;color:#6b5a2a}
+.card h4{margin:2px 0 4px;font-size:18px}
+.card p{margin:6px 0;font-size:16px;line-height:1.5}
+.ask{font-style:italic;color:#4a3d18}
+button.btn{font:inherit;font-size:15px;cursor:pointer;background:#2a2210;color:var(--gold2);border:0;border-radius:4px;padding:6px 12px}
+button.btn[aria-pressed=true]{background:var(--stamp);color:#fff}
+button.btn.alt{background:transparent;color:#2a2210;border:1px solid #2a2210}
+.chain{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0}
+.chain span{background:var(--navy);color:var(--gold2);padding:4px 10px;border-radius:3px;font-size:15px}
+.chain i{font-style:normal;color:var(--stamp)}
+table{width:100%;border-collapse:collapse;font-size:15px;background:#fbf6e6}
+th,td{border:1px solid #cdbf98;padding:6px 8px;text-align:left;vertical-align:top}
+th{background:var(--paper2)}
+td.pick{cursor:pointer}td.pick:hover{background:#efe2b5}
+td.pick[aria-selected=true]{background:var(--gold);font-weight:700}
+.scroll{overflow-x:auto}
+label{display:block;font-weight:700;margin:12px 0 4px}
+textarea{width:100%;min-height:76px;font:16px/1.5 inherit;font-family:inherit;padding:8px 10px;border:1px solid #9d8e62;border-radius:3px;background:#fffdf4;color:var(--text);resize:vertical}
+.pinned{margin:6px 0;padding:8px 10px;background:#fffdf4;border-left:4px solid var(--gold)}
+.pinned small{color:#6b5a2a}
+.counter{background:#2a2210;color:#f6e9bd;padding:10px 14px;border-radius:3px;margin:12px 0}
+.scale{display:flex;gap:6px;margin:10px 0 4px}
+.scale b{flex:1;height:14px;background:#d8cba4;border-radius:2px;transition:background .3s}
+.scale b.on{background:var(--stamp)}
+ul.chk{list-style:none;padding:0;margin:0}
+ul.chk li{margin:4px 0}
+.note{font-size:15px;color:#5a4a1c}
+details{background:#fbf6e6;border:1px solid #cdbf98;border-radius:3px;margin:8px 0;padding:6px 14px}
+summary{cursor:pointer;font-weight:700}
+details dt{font-weight:700;margin-top:8px}details dd{margin:0 0 4px}
+footer{padding:22px 0 40px;font-size:14px;color:#a9a28d}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media print{body{background:#fff;color:#000}header.hero,nav.tabs,.row,footer{display:none}main{background:#fff}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<div class="stamp">Архивное дело открыто</div>
+<h1>Хранители <em>знания</em></h1>
+<p class="lead">Четыре дела для 8–11 классов: кто и как писал историю Казахстана — наука, власть и память. Изучите источники, соберите довод, выдержите возражение и примените способ рассуждения к новой ситуации.</p>
+<nav class="tabs" aria-label="Классы"><ul class="tabs" style="display:contents;list-style:none;padding:0;margin:0" id="tabs"></ul></nav>
+</div></header>
+<main><div class="wrap" id="view"></div></main>
+<footer><div class="wrap">Цели обучения указаны по типовой учебной программе «История Казахстана» (приказ МП РК от 16.09.2022 № 399, ред. от 21.11.2022 № 467). Даты и факты в карточках уточняйте по действующему учебнику. Учебный проект студента КРУ им. А. Байтурсынулы.</div></footer>
+
+<script>
+const RUB=[
+['А. Работа с источником','Называет источник','Указывает автора и дату','Объясняет цель и адресата','Оценивает надёжность и ограничения'],
+['Б. Контекст, причины и следствия','Перечисляет факты','Связывает два факта','Объясняет причины и следствия','Выделяет главную причину и обосновывает'],
+['В. Сопоставление интерпретаций','Приводит одну точку зрения','Называет две точки зрения','Сравнивает их основания','Объясняет, почему оценки расходятся'],
+['Г. Аргументированный вывод','Высказывает мнение','Опирается на один довод','Связывает довод с выводом','Отвечает на сильнейшее возражение'],
+['Д. Перенос в новую ситуацию','Повторяет пример','Переносит с подсказкой','Применяет способ самостоятельно','Применяет и указывает границы способа']];
+
+const CASES={
+8:{name:'Дело учителя нации',topic:'А. Байтурсынов — «учитель нации»',sect:'Культура Советского Казахстана: наука и образование',
+q:'Была ли лингвистика Байтурсынова наукой или политикой — и почему власть увидела в ней угрозу?',
+codes:['8.2.2.2 оценивать деятельность А. Байтурсынова как основоположника казахской лингвистики и общественного деятеля','8.2.3.1 оценивать роль национальной печати в пробуждении общественно-политического сознания','8.3.1.7 анализировать последствия политики командно-административной системы в 20–30-е годы XX века'],
+concepts:'значимость; причина и следствие; доказательство',
+src:[
+{k:'text',t:'Газета «Қазақ» (1913–1918)',m:'Оренбург, на казахском языке',b:'Первая общенациональная казахская газета: школа, земля, права, язык. Байтурсынов — один из её руководителей, рядом — А. Букейханов и М. Дулатов. Читали её по всей Степи.',a:'Кто читатель? Зачем создана газета? Что здесь научное знание, а что политическая позиция?'},
+{k:'data',t:'Хронология жизни',m:'Сводка для работы',b:'1873 — рождение. 1913–1918 — газета «Қазақ». 1920-е — работа над казахской грамматикой, терминами, учебниками. 1929 — арест. 1937 — расстрел.',a:'Какие события показывают рост влияния, а какие — реакцию власти? Что объединяет учебники и газету?'},
+{k:'visual',t:'Цепочка влияния',m:'Схема',b:'chain:Родной язык|Учебник и школа|Печать|Общественное сознание|Внимание власти',a:'Каково самое слабое звено цепочки? Что докажет, что именно оно слабое?'}],
+counter:'Оппонент: репрессии 1930-х касались очень многих, поэтому научные заслуги Байтурсынова ничего не объясняют.',
+transfer:'Вы нашли рукописный букварь неизвестного автора начала XX века. Какие три вопроса вы зададите, прежде чем использовать его как доказательство роли печати и школы?',
+ev:['Карточка источника: автор, цель, адресат','Цепочка «язык — школа — печать — сознание» с примером для каждого звена','Вывод по схеме Тулмина с ответом на возражение','Три вопроса к новому источнику в мини-кейсе'],
+ksp:{goals:'Все: называют вклад Байтурсынова. Большинство: объясняют связь «язык — школа — печать — сознание». Некоторые: оценивают, почему власть воспринимала это как угрозу.',crit:'Объясняет роль газеты «Қазақ» по источнику; выстраивает цепочку влияния; делает вывод с доводом и ответом на возражение.',lang:'Термины: лингвистика, национальная печать, общественное сознание, репрессии. Фраза: «Источник свидетельствует, что…».',val:'Уважение к науке и родному языку; гражданская ответственность.',links:'Казахский язык и литература, обществознание.',prior:'Начало XX века; партия «Алаш»; печать.'}},
+9:{name:'Дело историка',topic:'Влияние сталинской идеологии. Почему историк Е. Бекмаханов был осуждён на 25 лет?',sect:'Казахстан в послевоенные годы (1946–1953)',
+q:'Что показывает «дело Бекмаханова»: научный спор или решение власти?',
+codes:['9.2.3.1 оценивать вклад Е. Бекмаханова в развитие исторической науки Казахстана','9.3.1.1 объяснять особенности общественно-политической жизни, давать собственную интерпретацию'],
+concepts:'интерпретация; доказательство; изменение и преемственность',
+src:[
+{k:'text',t:'Монография «Казахстан в 20–40-е годы XIX века» (1947)',m:'Е. Бекмаханов',b:'Научное исследование эпохи колониальной политики и движения Кенесары Касымова. Позднее её оценки радикально изменились: от научной работы до «политической ошибки».',a:'Кто и когда оценивает книгу? Какие критерии применяют: научные или идеологические?'},
+{k:'data',t:'Хронология дела',m:'Сводка для работы',b:'1947 — выход книги. 1950–1951 — идеологическая критика и «обсуждения». 1952 — арест и приговор: 25 лет. Позднее — освобождение и реабилитация (точные даты — по учебнику).',a:'Через сколько лет после выхода книги изменилась оценка? Что изменилось за это время вокруг учёного?'},
+{k:'visual',t:'Две шкалы оценки',m:'Сопоставление',b:'chain:Оценка 1951 года: идеологическая|Оценка программы 9 класса: вклад в науку|Что общего в предмете спора|Что различается в критериях',a:'Можно ли обе оценки проверить по источникам? Что в них доказуемо, а что — нет?'}],
+counter:'Оппонент: приговор вынесли за ошибки в науке, а не по идеологическим причинам.',
+transfer:'Сегодня учёного критикуют в социальных сетях за статью. По каким трём признакам вы отличите научную дискуссию от давления?',
+ev:['Хронология дела с выводом о смене оценок','Таблица «оценка — кто — критерий — проверяемость»','Собственная интерпретация (9.3.1.1) с опорой на два вида информации','Три признака различения дискуссии и давления'],
+ksp:{goals:'Все: излагают суть дела. Большинство: сопоставляют две оценки. Некоторые: аргументируют собственную интерпретацию.',crit:'Отличает научный довод от идеологического; сопоставляет оценки по критериям; даёт обоснованную интерпретацию.',lang:'Термины: историография, идеологическое давление, реабилитация, интерпретация. Фраза: «Это можно проверить по…».',val:'Академическая честность; свобода научного поиска.',links:'Всемирная история (1946–1953), обществознание.',prior:'Сталинская идеология; культура 1920–1940-х.'}},
+10:{name:'Дело о центре мира',topic:'История изучения традиционных цивилизаций Центральной Азии',sect:'Центрально-азиатские цивилизации: многообразие и культурная общность',
+q:'Центральная Азия — окраина великих цивилизаций или один из их центров?',
+codes:['10.1.1.2 исследовать взгляды учёных о роли Центральной Азии в мировой цивилизации','10.1.2.2 объяснять сущность понятия «Великая Степь» на основе анализа исторических источников','10.1.3.2 анализировать достижения народов Центральной Азии в области науки и духовной культуры'],
+concepts:'интерпретация; сходство и различие; значимость',
+src:[
+{k:'text',t:'Тезис С. Ф. Старра (2013)',m:'«Lost Enlightenment»',b:'Историк утверждает: в IX–XI вв. Центральная Азия была одним из главных центров науки и учёности, а потом этот период оказался «забыт».',a:'Какие примеры должен привести автор, чтобы тезис был убедителен? Чего ему могут не хватать?'},
+{k:'text',t:'Тезис А. Г. Франка (1992)',m:'«The Centrality of Central Asia»',b:'Экономист-историк предлагает смотреть на регион как на узел связей между Востоком и Западом, а не как на периферию.',a:'Чем «центральность» по Франку отличается от «учёности» по Старру?'},
+{k:'data',t:'Исследователи региона',m:'Сводка для работы',b:'В. В. Бартольд — «Туркестан в эпоху монгольского нашествия» (1898–1900), опора на письменные источники. А. Х. Маргулан — археология Центрального Казахстана, бегазы-дандыбаевская культура.',a:'Чем различаются письменные и археологические доказательства? Что каждое из них не может показать?'},
+{k:'visual',t:'Схема Великого Шелкового пути',m:'Схема',b:'chain:Китай|Семиречье и Сыр-Дарья|Хорезм и Согд|Персия и Византия',a:'Что в этой схеме подтверждает «узел», а что — «посредника»?'}],
+counter:'Оппонент: Центральная Азия лишь передавала товары и идеи, а рождались они в других регионах.',
+transfer:'Современный порт или дата-центр — это центр или посредник? Какой критерий вы применили бы и где он перестаёт работать?',
+ev:['Матрица «учёный — тезис — довод — ограничение»','Определение «Великая Степь» своими словами с опорой на источник','Позиция с оговоркой: «Это верно, если…»','Критерий «центр / посредник» в мини-кейсе'],
+ksp:{goals:'Все: называют точки зрения. Большинство: сравнивают их основания. Некоторые: формулируют собственную позицию с оговоркой.',crit:'Выделяет тезис и довод учёного; сравнивает два подхода; обосновывает позицию и её границы.',lang:'Термины: Великая Степь, цивилизация, историография, тезис. Фраза: «Автор исходит из того, что…».',val:'Уважение к наследию региона; критическое мышление.',links:'География, всемирная история, литература.',prior:'Сакская эпоха; Шелковый путь; государства Великой Степи.'}},
+11:{name:'Дело о науке',topic:'Научное наследие средневекового Казахстана. Развитие науки в средневековом Казахстане',sect:'Развитие образования и науки',
+q:'Что считать наукой: труды Аль-Фараби и Сатпаева — одна традиция или разные?',
+codes:['11.4.1.1 определять достижения науки в разные исторические периоды'],
+concepts:'изменение и преемственность; значимость',
+src:[
+{k:'text',t:'Аль-Фараби (ок. 870–950)',m:'Мыслитель из Фараба (Отрар)',b:'Философ и учёный, которого называли «Вторым учителем» после Аристотеля. Писал о логике, музыке, устройстве общества.',a:'Какие признаки науки видны в его трудах? Чего нет по меркам XX века?'},
+{k:'data',t:'Труды эпохи',m:'Сводка для работы',b:'Ю. Баласагуни — «Кутадгу билиг» (1069–1070). М. Кашгари — «Диван лугат ат-тюрк» (ок. 1072–1074). М. Х. Дулати — «Тарих-и Рашиди» (1540-е).',a:'К каким жанрам знания относятся эти труды: словарь, поэма наставлений, история? Что общего?'},
+{k:'text',t:'К. И. Сатпаев (1899–1964)',m:'Геолог, первый президент АН Казахской ССР',b:'Организатор науки в республике, исследователь Жезказганского месторождения меди. Научный результат здесь — открытие и практическая польза.',a:'Чем научный результат Сатпаева отличается по способу получения от трудов Аль-Фараби?'},
+{k:'visual',t:'Лента времени знаний',m:'Схема',b:'chain:X век: философия|XI век: словарь и поэма|XVI век: история|XX век: геология и академия',a:'Где в ленте «преемственность», а где «разрыв»? Чем докажете?'}],
+counter:'Оппонент: средневековые труды — это ещё не наука в современном смысле.',
+transfer:'Выберите современное научное достижение, не разобранное на уроке. По каким трём критериям вы определите, что это достижение науки?',
+ev:['Критерии «что считать наукой» (минимум три)','Лента времени с отметками преемственности и разрыва','Вывод по схеме Тулмина с ответом на возражение','Оценка нового достижения по тем же критериям'],
+ksp:{goals:'Все: называют достижения эпох. Большинство: сравнивают их по критериям. Некоторые: обосновывают, есть ли преемственность.',crit:'Определяет достижения науки по критериям; сравнивает эпохи; защищает вывод от возражения.',lang:'Термины: научное наследие, преемственность, критерий, достижение. Фраза: «Это достижение науки, потому что…».',val:'Гордость, основанная на доказательствах; ценность знания.',links:'Литература, геология, философия.',prior:'Тюркские государства; Шелковый путь; Казахское ханство.'}}
+};
+
+const $=(s,r=document)=>r.querySelector(s);
+const el=(h)=>{const d=document.createElement('div');d.innerHTML=h;return d.firstElementChild};
+let cur=8;const state={};
+function st(g){return state[g]||(state[g]={pin:new Set(),why:{},claim:'',warrant:'',reply:'',scale:{},tr:''})}
+
+function tabs(){const u=$('#tabs');u.innerHTML='';[...Object.keys(CASES),'pass'].forEach(g=>{const b=el(`<li><button role="tab" aria-selected="${g==cur}" data-g="${g}">${g==='pass'?'Паспорт':g+' класс'}</button></li>`);b.firstChild.onclick=()=>{cur=g==='pass'?'pass':+g;render()};u.appendChild(b)})}
+
+function passport(){return `<section><h2>Паспорт комплексного задания</h2>
+<p>Сквозной сюжет: <b>«Кто и как писал историю Казахстана: наука, власть и память»</b>. В каждом классе — проблемный вопрос, три вида информации (текст, данные, визуальная схема), аргументированный вывод и перенос в новую ситуацию.</p>
+<h3>Предметные результаты</h3><ul>${Object.entries(CASES).map(([g,c])=>`<li><b>${g} класс.</b> ${c.codes.join('; ')}</li>`).join('')}</ul>
+<h3>Компетенции</h3><p>Исследовательская (работа с источником), аналитическая (причины, сопоставление), коммуникативная (аргументация), гражданская (ответственная позиция), цифровая (работа с интерактивным конструктором). Концепты программы: изменение и преемственность, причина и следствие, доказательство, сходство и различие, значимость, интерпретация.</p>
+<h3>Критерии и дескрипторы (единые для 8–11 классов)</h3><div class="scroll">${rubric(false)}</div>
+<p class="note">Для 11 класса подтверждена цель 11.4.1.1; остальные цели 10–11 классов сверьте с действующей редакцией программы для 10–11 классов.</p></section>`}
+
+function rubric(inter){const g=cur;const s=st(g);return `<table><tr><th>Критерий</th><th>Уровень 1</th><th>Уровень 2</th><th>Уровень 3</th><th>Уровень 4</th></tr>${RUB.map((r,i)=>`<tr><th>${r[0]}</th>${r.slice(1).map((d,j)=>`<td ${inter?`class="pick" tabindex="0" role="button" data-r="${i}" data-l="${j+1}" aria-selected="${s.scale['r'+i]==j+1}"`:''}>${d}</td>`).join('')}</tr>`).join('')}</table>`}
+
+function card(c,i){const s=st(cur);const pinned=s.pin.has(i);let body=c.b;if(body.startsWith('chain:'))body=`<div class="chain">${body.slice(6).split('|').map(x=>`<span>${x}</span>`).join('<i>→</i>')}</div>`;else body=`<p>${body}</p>`;
+return `<div class="card ${c.k}"><div class="kind">${{text:'Текст',data:'Данные',visual:'Схема'}[c.k]} · ${c.m}</div><h4>${c.t}</h4>${body}<p class="ask">${c.a}</p><button class="btn" aria-pressed="${pinned}" data-i="${i}">${pinned?'Прикреплено к доводу':'Прикрепить к доводу'}</button></div>`}
+
+function meter(c,s){const types=new Set([...s.pin].map(i=>c.src[i].k));return [s.pin.size>=2,types.size>=2,s.claim.trim().length>=40,s.warrant.trim().length>=40,s.reply.trim().length>=40]}
+const MSG=['прикрепите минимум 2 источника','нужны разные виды информации','сформулируйте утверждение','объясните, как довод ведёт к выводу','ответьте на возражение'];
+
+function kspHtml(c){const k=c.ksp;return `<details><summary>Краткосрочный план урока (КСП)</summary><dl>
+<dt>Раздел</dt><dd>${c.sect}</dd><dt>Тема урока</dt><dd>${c.topic}</dd><dt>Цели обучения</dt><dd>${c.codes.join('<br>')}</dd>
+<dt>Цели урока</dt><dd>${k.goals}</dd><dt>Критерии оценивания</dt><dd>${k.crit}</dd><dt>Языковые цели</dt><dd>${k.lang}</dd>
+<dt>Привитие ценностей</dt><dd>${k.val}</dd><dt>Межпредметные связи</dt><dd>${k.links}</dd><dt>Предварительные знания</dt><dd>${k.prior}</dd>
+<dt>Начало урока (5 мин)</dt><dd>Открытие дела: проблемный вопрос, актуализация знаний, критерии на экране.</dd>
+<dt>Середина урока (30 мин)</dt><dd>Группы изучают пакет информации (текст, данные, схема), прикрепляют довод в конструкторе, получают возражение и готовят ответ; обратная связь учителя по рубрике; мини-кейс на перенос.</dd>
+<dt>Конец урока (5 мин)</dt><dd>Самооценка по рубрике, рефлексия: «Какой довод оказался сильнейшим и почему?»</dd>
+<dt>Дифференциация</dt><dd>Поддержка: опорные вопросы к источнику. Основной уровень: полный конструктор. Углубление: оценка надёжности и ограничений.</dd>
+<dt>Оценивание</dt><dd>Формирующее по рубрике А–Д; обратная связь по схеме «куда иду — как иду — что дальше».</dd>
+<dt>Здоровье и безопасность</dt><dd>Физминутка; работа с экраном не более 15 минут подряд.</dd></dl></details>`}
+
+function render(){tabs();const v=$('#view');if(cur==='pass'){v.innerHTML=passport();return}
+const c=CASES[cur],s=st(cur);
+v.innerHTML=`<section><div class="chip">${cur} класс</div> <span class="note">${c.sect}</span><h2>${c.name}</h2><div class="q">${c.q}</div>
+<div>${c.codes.map(x=>`<span class="chip" title="${x}">${x.split(' ')[0]}</span>`).join('')}</div><p class="note">Концепты: ${c.concepts}. Тема по плану: ${c.topic}.</p></section>
+<section><h2>Пакет информации</h2><p>Прочитайте карточки. У каждой — вопрос к источнику. Прикрепите к доводу те, что подтверждают ваше утверждение.</p><div class="grid" id="cards">${c.src.map(card).join('')}</div></section>
+<section><h2>Конструктор вывода</h2>
+<label for="claim">Утверждение (ваш ответ на проблемный вопрос)</label><textarea id="claim">${s.claim}</textarea>
+<label>Доводы из источников</label><div id="pins">${[...s.pin].map(i=>`<div class="pinned"><b>${c.src[i].t}</b> <small>(${{text:'текст',data:'данные',visual:'схема'}[c.src[i].k]})</small><textarea data-w="${i}" placeholder="Что именно в источнике подтверждает утверждение?">${s.why[i]||''}</textarea></div>`).join('')||'<p class="note">Пока нет прикреплённых источников.</p>'}</div>
+<label for="warrant">Обоснование: почему довод ведёт к выводу</label><textarea id="warrant">${s.warrant}</textarea>
+<div class="counter"><b>Возражение.</b> ${c.counter}</div>
+<label for="reply">Ваш ответ на возражение и оговорка («это верно, если…»)</label><textarea id="reply">${s.reply}</textarea>
+<div class="scale" id="scale"></div><div id="mmsg" class="note" aria-live="polite"></div>
+<div class="row"><button class="btn" id="copy">Скопировать вывод</button><button class="btn alt" id="print">Распечатать</button></div></section>
+<section><h2>Новая ситуация</h2><p>${c.transfer}</p><textarea id="tr">${s.tr}</textarea></section>
+<section><h2>Ожидаемые доказательства</h2><ul class="chk">${c.ev.map(x=>`<li><label style="font-weight:400;margin:0"><input type="checkbox"> ${x}</label></li>`).join('')}</ul></section>
+<section><h2>Самооценка по рубрике</h2><p class="note">Выберите ячейку для каждого критерия. Итог: <b id="tot">0</b> из 20.</p><div class="scroll" id="rub">${rubric(true)}</div></section>
+<section>${kspHtml(c)}</section>`;
+$('#cards').onclick=e=>{const b=e.target.closest('button');if(!b)return;const i=+b.dataset.i;s.pin.has(i)?s.pin.delete(i):s.pin.add(i);render();$('#cards').scrollIntoView({block:'nearest'})};
+$('#claim').oninput=e=>{s.claim=e.target.value;upd(c,s)};$('#warrant').oninput=e=>{s.warrant=e.target.value;upd(c,s)};$('#reply').oninput=e=>{s.reply=e.target.value;upd(c,s)};$('#tr').oninput=e=>{s.tr=e.target.value};
+document.querySelectorAll('[data-w]').forEach(t=>t.oninput=e=>{s.why[t.dataset.w]=e.target.value});
+$('#rub').onclick=e=>{const t=e.target.closest('td.pick');if(!t)return;s.scale['r'+t.dataset.r]=+t.dataset.l;document.querySelectorAll('#rub td.pick').forEach(x=>x.setAttribute('aria-selected',s.scale['r'+x.dataset.r]==x.dataset.l));tot(s)};
+$('#rub').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();e.target.click()}};
+$('#print').onclick=()=>window.print();
+$('#copy').onclick=()=>{const txt=`${c.q}\n\nУтверждение: ${s.claim}\n\nДоводы:\n${[...s.pin].map(i=>'— '+c.src[i].t+': '+(s.why[i]||'')).join('\n')}\n\nОбоснование: ${s.warrant}\n\nОтвет на возражение: ${s.reply}`;
+const done=()=>{$('#mmsg').textContent='Вывод скопирован.'};(navigator.clipboard?navigator.clipboard.writeText(txt).then(done,()=>$('#mmsg').textContent='Не удалось скопировать: выделите текст вручную.'):($('#mmsg').textContent='Копирование недоступно: выделите текст вручную.'))};
+upd(c,s);tot(s)}
+function upd(c,s){const m=meter(c,s);$('#scale').innerHTML=m.map(x=>`<b class="${x?'on':''}"></b>`).join('');const n=m.filter(Boolean).length;const miss=m.findIndex(x=>!x);$('#mmsg').textContent=n===5?'Вывод доказателен по всем пяти признакам.':`Весы доказательств: ${n} из 5. Дальше: ${MSG[miss]}.`}
+function tot(s){let t=0;for(let i=0;i<5;i++)t+=s.scale['r'+i]||0;const e=$('#tot');if(e)e.textContent=t}
+render();
+</script>
+</body>
+</html>
